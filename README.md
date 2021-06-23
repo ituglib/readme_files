@@ -1,2 +1,3 @@
 # readme_files
-Set of README files for use on the ITUGLIB website
+
+This project contains README files associated with the ITUGLIB website packages.
