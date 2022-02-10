@@ -1,0 +1,35 @@
+<h1>Instructions for use of GnuPG versions 1.4.23 and above with OpenSSL 3.0+</h1>
+<p>Use the OSS command<br/>
+&nbsp;&nbsp;<code>tar xzf gnupg-<i>package</i>.tar.gz -C /usr/local-ssl3.0 -p --no-same-user</code><br/>
+to install GnuPG. Make sure to have the directory containing the OpenSSL 3.0.x
+version of OpenSSL in your _RLD_LIB_PATH variable when GnuPG is used. Typically,
+this is <code>/usr/local-ssl3.0</code>.</p>
+<p>
+Due to new features added in the latest OSS System Libraries, binaries built
+with those will may function correctly on older RVUs.   The following table
+lists the minimum RVU for each platform that can correctly run GnuPG
+version 1.4.23, and above:</p>
+<table>
+<tr>
+  <td><b>Platform</b></td>
+  <td><b>Minimum RVU</b></td>
+</tr>
+  <td>TNS/E</td>
+  <td>J06.22</td>
+<tr>
+  <td>TNS/X</td>
+  <td>L20.10</td>
+</tr>
+<tr>
+  <td>TNS/V</td>
+  <td>L20.10</td>
+</tr>
+</table>
+<h2>Build Recipe</h2>
+<p>To build GnuPG from source, download the tarball for gnupg, and unzip it to
+a directory in OSS. The current build instructions used by ITUGLIB are:</p>
+<pre>
+tar xzf gnupg-1.4.23-src.tar.gz
+cd gnupg-1.4.23
+make
+</pre>
