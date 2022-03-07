@@ -1,0 +1,35 @@
+<p><b>Note:</b> The port of OpenSSH 8.9p1 may not be fully functional. Client
+functions, key generation, and signing appear to work correctly.</p>
+<h1>Instructions for use of OpenSSH 8.9p1</h1>
+<p>Use the OSS command<br/>
+&nbsp;&nbsp;<code>tar xzf openssh-ssl3.0-<i>version</i>-<i>systype</i>.tar.gz -C / -p --no-same-user</code><br/>
+to install OpenSSH. You must install the package in the exact same location as
+in the tar file. Add the <code>/usr/local/lib</code> to your _RLD_LIB_PATH variable when
+use OpenSSL 3.0 for this package. Other versions of OpenSSH should be installed
+elsewhere.</p>
+<p>
+Due to new features added in the latest OSS System Libraries, binaries built
+with those will not function correctly on older RVUs. The following table
+lists the minimum RVU for each platform that can correctly run OpenSSH
+version 8.9p1, and above:</p>
+<table>
+<tr>
+  <td><b>Platform</b></td>
+  <td><b>Minimum RVU</b></td>
+</tr>
+  <td>TNS/E</td>
+  <td>J06.22</td>
+<tr>
+  <td>TNS/X</td>
+  <td>L20.10</td>
+</tr>
+<tr>
+  <td>TNS/V</td>
+  <td>L20.10</td>
+</tr>
+</table>
+<p>The source for this project is currently in a fork available at:
+<a href="https://github.com/rsbeckerca/openssh-portable.git">https://github.com/
+rsbeckerca/openssh-portable.git</a>. This location is subject to change if and
+when the contribution to the main project is accepted.</p>
+
