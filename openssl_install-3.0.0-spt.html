@@ -1,10 +1,9 @@
 <h1>Instructions for use of OpenSSL 3.0.0 (SPT Library)</h1>
-<p><b>Caution: OpenSSL 3.0.0 is in a BETA state. Do not use in production.</b></
-p>
 <p>Use the OSS command<br/>
-&nbsp;&nbsp;<code>tar xzf openssl-<i>package</i>.tar.gz -C / -p --no-same-user</code><br/>
+&nbsp;&nbsp;<code>tar xzf openssl-<i>package</i>.tar.gz -C / -p --no-same-owner</code><br/>
 to install OpenSSL. You must install the package in the exact same location as
-in the tar file. Add the <code>/usr/local-ssl3.0_spt/lib</code> to your _RLD_LIB_PATH variable when
+in the tar file. Add the <code>/usr/local-ssl3.0_spt/lib64</code> for 64-bit or
+<code>/usr/local-ssl3.0_put/lib</code> for 32-bit to your _RLD_LIB_PATH variable when
 OpenSSL 3.0.0 SPT is needed. Other versions of OpenSSL should be installed
 elsewhere.</p>
 <p><b>Note:</b> Because of a problem with tar, the security of the

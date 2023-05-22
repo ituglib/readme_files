@@ -1,21 +1,21 @@
-<h1>Instructions for use of OpenSSL 3.0.0 (PUT Library)</h1>
+<h1>Instructions for use of OpenSSL 3.1.0 (SPT Library)</h1>
 <p>Use the OSS command<br/>
 &nbsp;&nbsp;<code>tar xzf openssl-<i>package</i>.tar.gz -C / -p --no-same-owner</code><br/>
 to install OpenSSL. You must install the package in the exact same location as
-in the tar file. Add the <code>/usr/local-ssl3.0_put/lib64</code> for 64-bit or
-<code>/usr/local-ssl3.0_put/lib</code> for 32-bit to your _RLD_LIB_PATH variable when
-OpenSSL 3.0.0 PUT is needed. Other versions of OpenSSL should be installed
+in the tar file. Add the <code>/usr/local-ssl3.1_spt/lib64</code> for 64-bit or
+<code>/usr/local-ssl3.1_put/lib</code> for 32-bit to your _RLD_LIB_PATH variable when
+OpenSSL 3.1.0 SPT is needed. Other versions of OpenSSL should be installed
 elsewhere.</p>
 <p><b>Note:</b> Because of a problem with tar, the security of the
-<code>/usr/local-ssl3.0_put</code> and <code>/usr/local-ssl3.0_put/share</code> 
+<code>/usr/local-ssl3.1_spt</code> and <code>/usr/local-ssl3.1_spt/share</code>
 directories may be set to <code>0700</code> instead of <code>0755</code>. To
 fix this, use the command <br/>
-<code>chmod 755 /usr/local-ssl3.0_put /usr/local-ssl3.0_put/share</code></p>
+<code>chmod 755 /usr/local-ssl3.1_spt /usr/local-ssl3.1_spt/share</code></p>
 <p>
 Due to new features added in the latest OSS System Libraries, binaries built
 with those will not function correctly on older RVUs.   The following table
 lists the minimum RVU for each platform that can correctly run OpenSSL
-version 3.0.0, and above:</p>
+version 3.1.0, and above:</p>
 <table>
 <tr>
   <td><b>Platform</b></td>
@@ -33,10 +33,11 @@ version 3.0.0, and above:</p>
 </tr>
 </table>
 <p><b>Caution: </b>Do not mix versions of OpenSSL. There is no binary
-compatibility between version 1.1.1 and 3.0.0 of OpenSSL. The first directory
+compatibility between version 1.1.1 and 3.1.0 of OpenSSL. The first directory
 encountered in _RLD_LIB_PATH is selected by the OSS loader. Do not use a
 threaded library with an unthreaded program and vice versa.</p>
 <p><b>Note: </b>The TNS/X build may contain FIPS compatible providers. The
 ITUGLIB and OpenSSL teams do not formally perform FIPS certification on these
 builds. You must take responsibility for FIPS certification if it is required.
 </p>
+
