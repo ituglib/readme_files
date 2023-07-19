@@ -1,9 +1,11 @@
-<h1>Instructions for use of curl versions 7.78.0 and above with OpenSSL 3.0+</h1>
+<h1>Instructions for use of curl versions 7.78.0 and above with OpenSSL 1.0.2</h1>
 <p>Use the OSS command<br/>
 &nbsp;&nbsp;<code>tar xzf curl-<i>package</i>.tar.gz -C /usr/local -p --no-same-owner</code><br/>
 to install curl. Make sure to have the directory containing the OpenSSL 3.0.0
 version of OpenSSL in your _RLD_LIB_PATH variable when curl is used. Typically,
-this is <code>/usr/local-ssl3.0</code>.</p>
+this is <code>/usr/local/lib</code>.</p>
+<p>You can build curl with other versions of OpenSSL. Make sure to change the
+various settings appropriately to reference the library area of OpenSSL.</p>
 <p>
 Due to new features added in the latest OSS System Libraries, binaries built
 with those will may function correctly on older RVUs.   The following table
@@ -31,10 +33,10 @@ a directory in OSS. The current build instructions used by ITUGLIB are:</p>
 <pre>
 tar xzf curl-7.78.0.tar.gz
 cd curl-7.78.0
-CFLAGS="-c99" CPPFLAGS="-D_XOPEN_SOURCE_EXTENDED=1 -WIEEE_float -I/usr/local-ssl3.0/openssl/include" \
-	LDFLAGS="-L/usr/local-ssl3.0/lib" \
-	conf_script_floss_cc --with-ssl=/usr/local-ssl3.0 \
-	--prefix=/usr/local-ssl3.0
+CFLAGS="-c99" CPPFLAGS="-D_XOPEN_SOURCE_EXTENDED=1 -WIEEE_float -I/usr/local/openssl/include" \
+	LDFLAGS="-L/usr/local/lib" \
+	conf_script_floss_cc --with-ssl=/usr/local \
+	--prefix=/usr/local \
 	--disable-pthreads --disable-threaded-resolver --enable-ipv6
 make
 </pre>
