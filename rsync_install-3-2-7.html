@@ -1,0 +1,35 @@
+<h1>Instructions for use of Rsync versions 3.2.7 and above with SSL</h1>
+<p>Use the OSS command<br/>
+&nbsp;&nbsp;<code>tar xzf rsync-<i>package</i>.tar.gz -C / -p --no-same-owner</code><br/>
+to install rsync. Make sure to have the directory containing the OpenSSL 3.1.x,
+3.0.x, 1.1.x, or 1.0.2u version of libcrypt.so and libssl.so in your
+_RLD_LIB_PATH or _RLD_FIRST_LIB_PATH variable when rsync is used.</p>
+<p>If you are running on J-series, you must also include /usr/coreutils/lib
+in your RLD configuration.</p>
+<p><b>Note: </b>This package installs in a fixed path to ensure separation
+from incompatible SSL instances.
+<p>
+Due to new features added in the latest OSS System Libraries, binaries built
+with those will not function correctly on older RVUs.   The following table
+lists the minimum RVU for each platform that can correctly run git
+version 3.2.7, and above:</p>
+<table>
+<tr>
+  <td><b>Platform</b></td>
+  <td><b>Minimum RVU</b></td>
+</tr>
+  <td>TNS/E</td>
+  <td>J06.21</td>
+<tr>
+  <td>TNS/X</td>
+  <td>L17.08</td>
+</tr>
+<tr>
+  <td>TNS/V</td>
+  <td>L17.08</td>
+</tr>
+</table>
+<p>If you require new features or bug fixes that were released after 3.2.7,
+you will have to download the source package and build the new version
+yourself.  This requires experience with FLOSS and with building open source
+tools on OSS.</p>
