@@ -28,6 +28,7 @@ you will have to download the source from the xz download and build the new
 version yourself. This requires experience with FLOSS and with building open
 source tools on OSS. Make sure to replace the line in <code>src/xz/file_io.c</code> that includes <code>poll.h</code> with the following:</p>
 <pre>
+<s>#include &lt;poll.h&gt;</s>
 #define _FLOSS_USE_POLL
-#include <floss.h(floss_poll)>
+#include &lt;floss.h(floss_poll)&gt;
 </pre>
