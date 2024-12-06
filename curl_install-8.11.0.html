@@ -1,0 +1,67 @@
+<h1>Instructions for use of curl versions 8.11.0 and above with OpenSSL 3.0+</h1>
+<p>Use the OSS command<br/>
+&nbsp;&nbsp;<code>tar xzf curl-<i>package</i>.tar.gz -C / -p --no-same-owner</code><br/>
+to install curl. Make sure to have the directory containing the OpenSSL 3.0.x
+version of OpenSSL in your _RLD_LIB_PATH variable when curl is used. Typically,
+this is <code>/usr/local-ssl3.0/lib</code>.</p>
+<p>You can build curl with other versions of OpenSSL. Make sure to change the
+various settings appropriately to reference the library area of OpenSSL.</p>
+<p>
+If you are building 64-bit curl yourself, you will need to copy and modify
+<code>/usr/local/bin/cc</code> to include the following changes and use the <code>-no-floss</code> CFLAG:</p>
+<pre>
+diff --git a/usr/local/bin/cc b/cc
+index 9213bc4..06561e0 100755
+--- a/usr/local/bin/cc
++++ b/cc
+@@ -308,6 +308,13 @@ function validate_cc_symbols
+ # processing the commandline options/arguments
+ while [ -n "$1" ]
+ do
++       if [ "$1" = "-no-floss" ]
++       then
++               post_args="-I$FLOSS_BASE/include -L$FLOSS_BASE/lib"
++               shift
++               continue
++       fi
++
+        if [ "$1" = "-pth" ]
+        then
+                if [ "$spthread" = "y"  -o "$pthread" = "y"  -o "$put" = "y" ]
+</pre>
+<p>
+Due to new features added in the latest OSS System Libraries, binaries built
+with those will may not function correctly on older RVUs.  The following table
+lists the minimum RVU for each platform that can correctly run curl
+version 8.11.0, and above:</p>
+<table>
+<tr>
+  <td><b>Platform</b></td>
+  <td><b>Minimum RVU</b></td>
+</tr>
+  <td>TNS/E</td>
+  <td>J06.23</td>
+<tr>
+  <td>TNS/X</td>
+  <td>L22.09</td>
+</tr>
+<tr>
+  <td>TNS/V</td>
+  <td>L22.09</td>
+</tr>
+</table>
+<h2>Build Recipe</h2>
+<p>As of 8.11.0, curl requires the libpsl package. Please download and install it
+from ITUGLIB prior to attempting to build curl.</p>
+<p>To build curl from source, download the tarball for curl, and unzip it to
+a directory in OSS. The current build instructions used by ITUGLIB are:</p>
+<pre>
+tar xzf curl-8.11.0.tar.gz
+cd curl-8.11.0
+CFLAGS="-c99" CPPFLAGS="-D_XOPEN_SOURCE_EXTENDED=1 -D__NSK_OPTIONAL_TYPES__ -WIEEE_float -I/usr/local-ssl3.0/openssl/include" \
+	LDFLAGS="/usr/coreutils/lib/libz.a -L/usr/local-ssl3.0/lib -L/usr/coreutils/lib -L/usr/local/lib" \
+	conf_script_floss_cc --with-ssl=/usr/local-ssl3.0 \
+	--prefix=/usr/local-ssl3.0 \
+	--disable-pthreads --disable-threaded-resolver --enable-ipv6
+make
+</pre>
