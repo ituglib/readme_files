@@ -3,7 +3,8 @@
 &nbsp;&nbsp;<code>tar xzf curl-<i>package</i>.tar.gz -C / -p --no-same-owner</code><br/>
 to install curl. Make sure to have the directory containing the OpenSSL 3.0.x
 version of OpenSSL in your _RLD_LIB_PATH variable when curl is used. Typically,
-this is <code>/usr/local-ssl3.0/lib</code>.</p>
+this is <code>/usr/local-ssl3.0/lib</code> for 32-bit curl and
+<code>/usr/local-ssl3.0/lib64</code> for 64-bit curl.</p>
 <p>You can build curl with other versions of OpenSSL. Make sure to change the
 various settings appropriately to reference the library area of OpenSSL.</p>
 <p>
@@ -53,13 +54,25 @@ version 8.11.0, and above:</p>
 <h2>Build Recipe</h2>
 <p>As of 8.11.0, curl requires the libpsl package. Please download and install it
 from ITUGLIB prior to attempting to build curl.</p>
-<p>To build curl from source, download the tarball for curl, and unzip it to
+<p>To build curl 32-bit from source, download the tarball for curl, and unzip it to
 a directory in OSS. The current build instructions used by ITUGLIB are:</p>
 <pre>
 tar xzf curl-8.11.0.tar.gz
 cd curl-8.11.0
 CFLAGS="-c99" CPPFLAGS="-D_XOPEN_SOURCE_EXTENDED=1 -D__NSK_OPTIONAL_TYPES__ -WIEEE_float -I/usr/local-ssl3.0/openssl/include" \
 	LDFLAGS="/usr/coreutils/lib/libz.a -L/usr/local-ssl3.0/lib -L/usr/coreutils/lib -L/usr/local/lib" \
+	conf_script_floss_cc --with-ssl=/usr/local-ssl3.0 \
+	--prefix=/usr/local-ssl3.0 \
+	--disable-pthreads --disable-threaded-resolver --enable-ipv6
+make
+</pre>
+<p>To build curl 64-bit from source, download the tarball for curl, and unzip it to
+a directory in OSS. The current build instructions used by ITUGLIB are:</p>
+<pre>
+tar xzf curl-8.11.0.tar.gz
+cd curl-8.11.0
+CFLAGS="-c99" CPPFLAGS="-Wlp64 -D_XOPEN_SOURCE_EXTENDED=1 -D__NSK_OPTIONAL_TYPES__ -WIEEE_float -I/usr/local-ssl3.0/openssl/include" \
+	LDFLAGS="/usr/coreutils/lib/libz.a -L/usr/local-ssl3.0/lib64 -L/usr/coreutils/lib -L/usr/local/lib" \
 	conf_script_floss_cc --with-ssl=/usr/local-ssl3.0 \
 	--prefix=/usr/local-ssl3.0 \
 	--disable-pthreads --disable-threaded-resolver --enable-ipv6
