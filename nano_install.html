@@ -1,0 +1,31 @@
+<h1>Instructions for use of nano versions 8.3 and above</h1>
+<p>Use the OSS command<br/>
+&nbsp;&nbsp;<code>tar xzf nano-<i>package</i>.tar.gz -C / -p --no-same-owner</code><br/>
+to install nano.</p>
+<p>
+Due to new features added in the latest OSS System Libraries, binaries built
+with those will not function correctly on older RVUs.   The following table
+lists the minimum RVU for each platform that can correctly run nano
+version 8.3, and above:</p>
+<table>
+<tr>
+  <td><b>Platform</b></td>
+  <td><b>Minimum RVU</b></td>
+</tr>
+  <td>TNS/E</td>
+  <td>J06.21</td>
+<tr>
+  <td>TNS/X</td>
+  <td>L17.08</td>
+</tr>
+<tr>
+  <td>TNS/V</td>
+  <td>L17.08</td>
+</tr>
+</table>
+<p>If you require new features or bug fixes that were released after 8.3,
+you will have to download the source package and build the new version
+yourself.  This requires experience with FLOSS and with building open source
+tools on OSS.</p>
+<p>If you don't need these new features you should continue to use version 8.3 instead of the latest version.</p>
+
