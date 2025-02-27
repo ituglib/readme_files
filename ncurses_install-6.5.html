@@ -1,0 +1,31 @@
+<h1>Instructions for use of ncurses versions 6.5 and above</h1>
+<p>Use the OSS command<br/>
+&nbsp;&nbsp;<code>tar xzf ncurses<i>package</i>.tar.gz -C / -p --no-same-owner</code><br/>
+to install ncurses. If you are using the ncurses DLLs, make sure to have the directory containing the appropriate
+DLL in your _RLD_LIB_PATH variable when ncurses is used. Typically,
+this is <code>/usr/local/lib</code> or <code>/usr/local/lib64</code>.</p>
+<p>
+If you are building 64-bit ncurses yourself, you will need the c11 compiler
+and a minimum RVU of L20.10. Fix any compile errors that occur. You may have
+issues in configure with <code>intptr_t</code> and in <code>search.h</code>.
+<p>
+Due to new features added in the latest OSS System Libraries, binaries built
+with those will may not function correctly on older RVUs.  The following table
+lists the minimum RVU for each platform that can correctly run ncurses
+version 6.5, and above:</p>
+<table>
+<tr>
+  <td><b>Platform</b></td>
+  <td><b>Minimum RVU</b></td>
+</tr>
+  <td>TNS/E</td>
+  <td>not available from ITUGLIB</td>
+<tr>
+  <td>TNS/X</td>
+  <td>L20.10</td>
+</tr>
+<tr>
+  <td>TNS/V</td>
+  <td>L20.10</td>
+</tr>
+</table>
