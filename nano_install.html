@@ -3,6 +3,10 @@
 &nbsp;&nbsp;<code>tar xzf nano-<i>package</i>.tar.gz -C / -p --no-same-owner</code><br/>
 to install nano.</p>
 <p>
+If you are using the wide (nanow) version, you must use the ncurses_32 package
+from ITUGLIB for the <code>libncursesw.so</code> DLL. For the standard version, only
+CoreUtils (T1202) is required. This may change over time.</p>
+<p>
 Due to new features added in the latest OSS System Libraries, binaries built
 with those will not function correctly on older RVUs.   The following table
 lists the minimum RVU for each platform that can correctly run nano
@@ -19,8 +23,16 @@ version 8.3, and above:</p>
   <td>L17.08</td>
 </tr>
 <tr>
+  <td>TNS/X - wide character</td>
+  <td>L20.10</td>
+</tr>
+<tr>
   <td>TNS/V</td>
   <td>L17.08</td>
+</tr>
+<tr>
+  <td>TNS/V - wide character</td>
+  <td>L20.10</td>
 </tr>
 </table>
 <p>If you require new features or bug fixes that were released after 8.3,
