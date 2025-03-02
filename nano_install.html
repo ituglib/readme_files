@@ -7,6 +7,9 @@ If you are using the wide (nanow) version, you must use the ncurses_32 package
 from ITUGLIB for the <code>libncursesw.so</code> DLL. For the standard version, only
 CoreUtils (T1202) is required. This may change over time.</p>
 <p>
+The nano 64-bit build is also available, but does not have NLS support, because
+NonStop does not have <code>libiconv.so</code> in 64-bit as of yet.</p>
+<p>
 Due to new features added in the latest OSS System Libraries, binaries built
 with those will not function correctly on older RVUs.   The following table
 lists the minimum RVU for each platform that can correctly run nano
@@ -23,7 +26,7 @@ version 8.3, and above:</p>
   <td>L17.08</td>
 </tr>
 <tr>
-  <td>TNS/X - wide character</td>
+  <td>TNS/X - wide character and 64-bit</td>
   <td>L20.10</td>
 </tr>
 <tr>
@@ -31,7 +34,7 @@ version 8.3, and above:</p>
   <td>L17.08</td>
 </tr>
 <tr>
-  <td>TNS/V - wide character</td>
+  <td>TNS/V - wide character and 64-bit</td>
   <td>L20.10</td>
 </tr>
 </table>
