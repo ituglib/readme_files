@@ -1,7 +1,7 @@
 <h1>Instructions for use of git versions 2.51.0 and above</h1>
 <p>Use the OSS command<br/>
 &nbsp;&nbsp;<code>tar xzf git-<i>package</i>.tar.gz -C /usr/local -p --no-same-owner</code><br/>
-to install git. Make sure to have the directory containing the OpenSSL 1.0.2
+to install git. Make sure to have the directory containing the appropriate OpenSSL 
 version of libcrypt.so in your _RLD_LIB_PATH variable when git is used.</p>
 <p>
 Due to new features added in the latest OSS System Libraries, binaries built
@@ -32,12 +32,14 @@ version 2.51.0, and above:</p>
       which was deprecated as of git 2.51.0 and will be removed at git 3.0.
       This results in the Jenkins changelog being unavailable and in some
       cases may fail. Users are cautioned to be aware of this and potentially
-      have a separate dedicated git instance for Jenkins use on J-series.</td>
+      have a separate dedicated git instance for Jenkins use on J-series.<br/>
+      The ref-table command has some unknown issues on J-series as of 2.51.0.
+      Use caution with this command.</td>
 </tr>
 </table>
-<p>If you require new features or bug fixes that were released after 2.35.0,
+<p>If you require new features or bug fixes that were released after 2.51.0,
 you will have to download the source package and build the new version
 yourself.  This requires experience with FLOSS and with building open source
 tools on OSS.</p>
-<p>If you don't need these new features you should continue to use version 2.35.0 instead of the latest version.</p>
+<p>If you don't need these new features you should continue to use version 2.51.0 instead of the latest version.</p>
 
