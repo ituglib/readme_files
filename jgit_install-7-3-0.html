@@ -1,0 +1,31 @@
+<h1>Instructions for use of jgit versions 7.3.0 and above</h1>
+<p>Use the OSS command<br/>
+&nbsp;&nbsp;<code>tar xzf jgit-<i>package</i>.tar.gz -C /usr/local -p --no-same-owner</code><br/>
+to install jgit. Make sure to have the directory containing the appropriate Java packages (Java 17+) set up properly to use jgit.</p>
+<p>
+Due to new features added in the latest Java 17, older Java versions are not
+supported. The following table
+lists the minimum RVU for each platform that can correctly run jgit
+version 7.3.0, and above:</p>
+<table>
+<tr>
+  <td><b>Platform</b></td>
+  <td><b>Minimum Java</b></td>
+  <td><b>Notes</b></td>
+</tr>
+<tr>
+  <td>TNS/X</td>
+  <td>17</td>
+  <td></td>
+</tr>
+<tr>
+  <td>TNS/V</td>
+  <td>17</td>
+  <td></td>
+</tr>
+<tr>
+  <td valign='top'>TNS/E</td>
+  <td valign='top'>n/a</td>
+  <td valign='top'>JGit cannot be run on TNS/E because Java 17 is required.</td>
+</tr>
+</table>
